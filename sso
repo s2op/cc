@@ -1,0 +1,56 @@
+1. login to auth0
+2. create application & select regular web application & give name then click create
+3. choose technology as php
+4.open exercise and open cmd there then run composer require "Respect/validation"
+& run composer require "illuminate/database"
+5.make changes in the init.php & index.php file 
+change domain,client_id,client_secret,audience
+
+6.make virtual hosts for both exercise and exercise2
+
+8.make changes in the index.php & init.php for redirect_url 
+9.copy the redirect_url from init.php & paste in allowed callback urls of auth0 & save changes
+
+10.repeat the entire process for exercise 2 from step 2-8 step 6 & 7 excluded.
+
+
+
+
+Paste the below code in httpd-vhosts which is in C:\xampp\apache\conf\extra
+<VirtualHost *>
+DocumentRoot "C\XAMPP\htdocs"
+ServerName localhost
+</VirtualHost>
+
+<VirtualHost *>
+ DocumentRoot "C\XAMPP\htdoc\Exercise"
+ ServerName www.Exercise.org
+ <Directory "C:\XAMPP\htdocs\Exercise">
+Options Indexes FollowSymLinks Includes ExecCGI
+Order allow,deny
+ Allow from all
+</Directory>
+</VirtualHost>
+
+<VirtualHost *>
+ DocumentRoot "C\XAMPP\htdoc\Exercise2"
+ ServerName www.Exercise2.org
+ <Directory "C:\XAMPP\htdocs\Exercise2">
+Options Indexes FollowSymLinks Includes ExecCGI
+Order allow,deny
+ Allow from all
+</Directory>
+</VirtualHost>
+
+
+7.now go to C:\WINDOWS\System32\drivers\etc and ther make the changes in hosts file 
+pehle vo file ko open karke copy kar sab phir new notepad file me paste kar 
+niche add kar end me ekdum ye do line-
+127.0.0.1     www.Exercise.org
+127.0.0.1     www.Exercise.2org
+
+ab usko save kar desktop pe , phir vo file ko utha/copy kar aur yaha pe C:\WINDOWS\System32\drivers\etc paste kar 
+done
+
+
+
